@@ -1,6 +1,6 @@
 // // Chapter 21-25
 
-// document.write('<center><h1>Chapter No. 21-25 </h1></center>');
+document.write('<center><h1>Chapter No. 21-25 </h1></center>');
 
 // //  Q 01
 
@@ -128,6 +128,8 @@ var NumStr = numdecimal.toString();
 var resultfinal = NumStr.replace('.', '');
 document.write('<h1>Q 12</h1> Number: ' + numdecimal+ "<br> Result : " + resultfinal);
 
+// Q 13
+//  sir ne chorne ka bola hai
 
 
 // // Q 14
@@ -155,40 +157,7 @@ else {
 // // Q 15
 
 
-function promptPassword() {
-  // Get the password from the user
-  var password = prompt("Enter your password:");
-
-  // Check for minimum length
-  if (password < 6) {
-    alert("Password must be at least 6 characters long.");
-    return promptPassword(); // Re-prompt using recursion
-  }
-
-  // Check that the password does not start with a number.
-  // Using isNaN on the first character ensures it's not a numeric value.
-  if (!isNaN(password.charAt(0))) {
-    alert("Password should not start with a number.");
-    return promptPassword();
-  }
-
-  // Check that the password contains at least one alphabet and one number.
-  let hasAlphabet = /[A-Za-z]/.test(password);
-  let hasNumber = /[0-9]/.test(password);
-
-  if (!hasAlphabet || !hasNumber) {
-    alert("Password must contain both alphabets and numbers.");
-    return promptPassword();
-  }
-
-  // If all conditions are met, notify the user and return the password.
-  alert("Password is valid.");
-  return password;
-}
-
-
-promptPassword();
-
+// not a answer
 
 
 // Q 16
@@ -324,5 +293,185 @@ document.write("<br><h1>Q 07</h1>Random number between 1 and 100: "+randomNumber
 
 
 
+//     End 
 
 
+//Chapter 31 to 35
+
+document.write('<center><h1>Chapter No. 31-35</h1></center>');
+
+
+// Q 01
+
+
+var now = new Date();
+
+document.write("<br><h1>Q 01</h1>" + now);
+
+
+// // Q 02
+
+
+var Months = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+
+var MonthIndex = new Date().getMonth();
+
+document.write("<br><h1>Q 02</h1>Current Month: " + Months[MonthIndex]);
+
+
+// // Q 03
+
+
+
+var days = [
+  "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+];
+
+
+var DayIndex = new Date().getDay();
+
+var shortDay = days[DayIndex].slice(0, 3);
+
+document.write("<br><h1>Q 03</h1>Today is: " + shortDay);
+
+
+// // Q 04
+
+var today = new Date();
+var day = today.getDay();
+
+if (day === 0 || day === 6) {
+  document.write("<br><h1>Q 04</h1>It's Fun day");
+} else {
+  document.write("<br><h1>Q 04</h1>It's a regular day");
+}
+
+
+// // // Q 05
+
+
+var currentDate = new Date().getDate();
+
+if (currentDate < 16) {
+  document.write("<br><h1>Q 04</h1>First fifteen days of the month");
+} else {
+  document.write("<br><h1>Q 05</h1>Last days of the month");
+}
+
+// // // Q 06
+
+var msSinceEpoch = Date.now();
+var minutesSinceEpoch = msSinceEpoch / (1000 * 60);
+
+document.write("<br><h1>Q 06</h1>Minutes since midnight, Jan. 1, 1970:", minutesSinceEpoch);
+
+
+
+// // // Q 07
+
+var currentHour = new Date().getHours(); 
+
+if (currentHour < 12) {
+  alert("Q 07 \n Its AM");
+} else {
+  alert("Q 07 \n Its PM");
+}
+
+
+
+// // // Q 08
+
+
+var laterDate = new Date(2020, 12, 0);
+document.write("<br><h1>Q 08</h1>Later Date:", laterDate);
+
+
+
+// // // Q 09
+
+
+var firstRamadan = new Date("June 18, 2015");
+var now = new Date();
+
+var diffInMs = now - firstRamadan;
+var daysPassed = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+
+document.write("<br><h1>Q 09</h1>Days passed since 1st Ramadan (June 18, 2015): " + daysPassed);
+
+
+
+
+// // // Q 10
+
+
+var beginning2015 = new Date("January 1, 2015");
+var curtTime = new Date();
+
+var secondsElapsed = Math.floor((curtTime - beginning2015) / 1000);
+
+document.write("<br><h1>Q 09</h1> Seconds elapsed between January 1, 2015 and now: " + secondsElapsed);
+
+
+// // // Q 11
+
+var newDate = new Date();
+
+var hours = newDate.getHours();
+console.log("Current Hours:", hours);
+
+newDate.setHours(newDate.getHours() + 1);
+
+document.write("<br><h1>Q 09</h1> Date after adding one hour: " + currentDate);
+
+
+
+// // // Q 12
+
+
+var pastDate = new Date();
+
+pastDate.setFullYear(pastDate.getFullYear() - 100);
+
+alert("Q 12 \n Date 100 years back: " + pastDate);
+
+
+
+
+// // // Q 13
+
+var ageInput = prompt("Please enter your age:");
+
+var age = parseInt(ageInput, 10);
+
+var currentYear = new Date().getFullYear();
+
+var birthYear = currentYear - age;
+
+document.write("<br><h1>Q 09</h1> Your birth year is: " + birthYear);
+
+
+
+// // // Q 13
+
+
+var Name = prompt("Enter Customer Name:");
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+var bMonth = months[new Date().getMonth()];
+var numberOfUnits = parseFloat(+prompt("Enter Units  Number of:"));
+var chrgeperUnit = parseFloat(+prompt("Enter Per Unit Charges:"));
+var paymentcharge = +prompt("Enter  Payment charge:");
+var AmountPayable = (numberOfUnits * chrgeperUnit);
+var totalAmount = (parseFloat(AmountPayable) + paymentcharge);
+
+document.write("<h1>K-Electric Bill</h1>");
+document.write("<br>Customer Name: " + Name );
+document.write("<br>Current Month: " + bMonth );
+document.write("<br>Number of Units: " + numberOfUnits );
+document.write("<br>Charges per Unit: " + chrgeperUnit+ "</p>");
+document.write("<br>Net Amount Payable (within Due Date): " + AmountPayable );
+document.write("<br>Late Payment Surcharge: " + paymentcharge);
+document.write("<br>Gross Amount Payable (after Due Date): " + totalAmount  );
